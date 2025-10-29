@@ -5,45 +5,40 @@
     "singularName": "article",
     "pluralName": "articles",
     "displayName": "Article",
-    "description": "Create your blog content"
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "articleCategory": {
+      "type": "enumeration",
+      "enum": [
+        "Behind The Scenes"
+      ]
     },
-    "description": {
-      "type": "text",
-      "maxLength": 80
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+    "articleTitle": {
+      "type": "blocks"
     },
     "author": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
+      "relation": "oneToOne",
+      "target": "api::author.author"
     },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
+    "articleImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "articlePublishDate": {
+      "type": "date"
     }
   }
 }

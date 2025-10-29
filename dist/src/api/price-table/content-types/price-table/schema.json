@@ -1,0 +1,33 @@
+{
+    "kind": "collectionType",
+    "collectionName": "price_tables",
+    "info": {
+        "singularName": "price-table",
+        "pluralName": "price-tables",
+        "displayName": "Price Table",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "pricingTable": {
+            "displayName": "Pricing Table",
+            "type": "component",
+            "repeatable": true,
+            "component": "atoms.pricing-table"
+        },
+        "note": {
+            "type": "string"
+        },
+        "price_table_heading": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::price-table-heading.price-table-heading"
+        }
+    }
+}
